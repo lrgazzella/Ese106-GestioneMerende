@@ -5,25 +5,33 @@ import java.util.Vector;
 
 public class Ordine {
 	
-	private LocalDateTime giorno;
+	private LocalDateTime data;
 	private Classe classe;
 	private Vector<Articolo> articoli;
 	 
-	public Ordine(LocalDateTime giorno) {
-		this.giorno = giorno;
+	public Ordine(LocalDateTime data, Classe classe) {
+		if (data != null)
+			this.data = data;
+		else
+			throw new IllegalArgumentException("La data non può essere null");
+		
+		if (classe != null)
+			this.classe = classe;
+		else
+			throw new IllegalArgumentException("La classe non può essere null");
+		
 		articoli = new Vector<Articolo>(1,1);
 	}
 
 	public LocalDateTime getGiorno() {
-		return giorno;
+		return data;
 	}
 	public Classe getClasse() {
 		return classe;
 	}
 	public Vector<Articolo> getArticoli() {
 		return articoli;
-	}
-	
+	}	
 	public double getCostoTotale(){
 		double costo = 0;
 		for(Articolo q : articoli){
@@ -35,9 +43,13 @@ public class Ordine {
 		return getArticoli().size();
 	}
 	public String getCodice(){ 
-		String codice;
-		codice = getClasse() + "-" + getGiorno().toString();
-		return codice;
+		
+		int anno = getGiorno().getYear();
+		int mese = getGiorno().getMonthValue();
+		int giorno = getGiorno().getDayOfMonth();
+		
+		return getClasse().getNome() + "-" + anno + mese + giorno;
+		 
 	}
 	
 	public void addArticolo(Articolo a){
@@ -47,13 +59,12 @@ public class Ordine {
 	@Override
 	public String toString() {
 		return "Ordine ["
-				+ "giorno=" + giorno 
+				+ "data=" + data 
 				+ ", classe=" + classe
-				+ ", getCostoTotale()=" + getCostoTotale()
-				+ ", getNumeroArticoli()=" + getNumeroArticoli()
-				+ ", getCodice()=" + getCodice() 
+				+ ", costo totale=" + getCostoTotale()
+				+ ", numero articoli=" + getNumeroArticoli()
+				+ ", codice=" + getCodice() 
 				+ "]";
 	}
-	
 	
 }

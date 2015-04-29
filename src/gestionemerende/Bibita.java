@@ -6,7 +6,10 @@ public class Bibita extends Articolo{
 
 	public Bibita(String codice, String descrizione, double costoUnitario, double apportoCalorico, double quantita) {
 		super(codice, descrizione, costoUnitario, apportoCalorico);
-		this.quantita = quantita;
+		if (quantita > 0)
+			this.quantita = quantita;
+		else
+			throw new IllegalArgumentException("La quantità deve essere maggiore di 0");	
 	}
 
 	public double getQuantita() {
@@ -19,7 +22,5 @@ public class Bibita extends Articolo{
 				+ "quantita=" + quantita
 				+ ", " + super.toString() + "]";
 	}
-	
-	
-	
+		
 }

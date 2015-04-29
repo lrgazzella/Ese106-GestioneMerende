@@ -8,7 +8,11 @@ public class Istituto {
 	private Vector<Classe> classi;
 	
 	public Istituto(String nome) {
-		this.nome = nome;
+		if (nome != null)
+			this.nome = nome;
+		else
+			throw new IllegalArgumentException("Il nome non può essere null");
+		
 		classi = new Vector<Classe>(1,1);
 	}
 	
@@ -18,9 +22,17 @@ public class Istituto {
 	public Vector<Classe> getClassi() {
 		return classi;
 	}
+	
 	public void addClasse(Classe c){
 		classi.addElement(c);
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Istituto ["
+				+ "nome=" + nome 
+				+ ", numero classi=" + getClassi().size()
+				+ "]";
+	}
+
 }
