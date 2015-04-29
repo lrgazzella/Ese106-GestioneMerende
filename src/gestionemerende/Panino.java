@@ -19,6 +19,15 @@ public class Panino extends Articolo{
 	public boolean isCarneSuina() {
 		return carneSuina;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Panino ["
+				+ "vegetariano=" + vegetariano 
+				+ ", carneSuina=" + carneSuina 
+				+ ", " + super.toString() + "]";
+	}
 	
 	
 }

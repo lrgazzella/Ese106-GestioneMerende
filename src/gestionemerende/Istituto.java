@@ -22,4 +22,5 @@ public class Istituto {
 		classi.addElement(c);
 	}
 
+	
 }

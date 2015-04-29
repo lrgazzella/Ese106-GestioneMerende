@@ -5,7 +5,6 @@ import java.util.Vector;
 
 public class Ordine {
 	
-	
 	private LocalDateTime giorno;
 	private Classe classe;
 	private Vector<Articolo> articoli;
@@ -43,6 +42,17 @@ public class Ordine {
 	
 	public void addArticolo(Articolo a){
 		articoli.addElement(a);
+	}
+
+	@Override
+	public String toString() {
+		return "Ordine ["
+				+ "giorno=" + giorno 
+				+ ", classe=" + classe
+				+ ", getCostoTotale()=" + getCostoTotale()
+				+ ", getNumeroArticoli()=" + getNumeroArticoli()
+				+ ", getCodice()=" + getCodice() 
+				+ "]";
 	}
 	
 	

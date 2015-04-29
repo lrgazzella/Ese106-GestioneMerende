@@ -12,5 +12,14 @@ public class Bibita extends Articolo{
 	public double getQuantita() {
 		return quantita;
 	}
+
+	@Override
+	public String toString() {
+		return "Bibita ["
+				+ "quantita=" + quantita
+				+ ", " + super.toString() + "]";
+	}
+	
+	
 	
 }

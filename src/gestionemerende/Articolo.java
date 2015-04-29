@@ -30,6 +30,18 @@ public class Articolo {
 	public double getApportoCalorico() {
 		return apportoCalorico;
 	}
+
+
+	
+	
+	@Override
+	public String toString() {
+		return "Articolo ["
+				+ "codice=" + codice 
+				+ ", descrizione=" + descrizione
+				+ ", costoUnitario=" + costoUnitario 
+				+ ", apportoCalorico=" + apportoCalorico + "]";
+	}
 	
 
 }
